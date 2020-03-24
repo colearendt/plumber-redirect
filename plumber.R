@@ -27,6 +27,15 @@ function(res, msg = "test") {
    res$setHeader("Location", "/echo")
 }
 
+#* Absolute Redirect to another location
+#* @param msg The message to echo
+#* @get /redirect_abs
+function(req, res, msg = "test") {
+   browser()
+   res$status <- 302
+   res$setHeader("Location", paste0("http://", req$HTTP_HOST,"/echo"))
+}
+
 #* Plot a histogram
 #* @png
 #* @get /plot
